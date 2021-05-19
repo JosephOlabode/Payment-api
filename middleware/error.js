@@ -5,7 +5,7 @@ const {combine, prettyPrint,  errors, metadata} = format;
 
 
 module.exports = (err, req, res, next) => {
-    /// to-do:: log the error to a file and a database
+    /// to-do:: log the error to a file
     const logger = winston.createLogger({
         level: 'error',
         format: combine(

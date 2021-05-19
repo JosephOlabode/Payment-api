@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const queryPayment = require('../models/query-payment');
 
-router.get('query-payment/:paymentRef', async(req, res, next) => {
+router.get('/query-payment/:paymentRef', async(req, res, next) => {
     const paymentRef = req.params.paymentRef;
 
     const payment = await queryPayment.findOne({paymentRef: paymentRef})
