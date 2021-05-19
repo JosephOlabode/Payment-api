@@ -2,7 +2,18 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const http = require('http');
 const cors = require('cors');
-require('db');
+const error = require('./middleware/error')
+//require('db');
+const mongoose = require('mongoose');
+
+const connectionString = 'mongodb://localhost:27017/PaymentDB';
+
+mongoose.connect(connectionString, { useNewUrlParser: true, useFindAndModify: false,
+    useCreateIndex: true, useUnifiedTopology: true })
+
+mongoose.connection.on('connected', () => {
+    console.log('db connection is on');
+})
 
 const app = express();
 const server = http.createServer(app);
@@ -27,6 +38,7 @@ app.use('/', (req, res) => {
     })
 });
 
+app.use(error);
 // declaring a port constant is it was not set in the process environment
 const PORT = process.env.PORT || 3000;
 
