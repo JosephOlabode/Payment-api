@@ -7,9 +7,13 @@ const helperFunction = require('../controllers/helpers');
 
 router.post('/process-payment-async', async (req, res, next) => {
     const paymentDetails = req.body;
-    if(paymentDetails.amount !== null && paymentDetails.clientId !== null && paymentDetails.narration !== null && paymentDetails.cardNumber !== null && paymentDetails.cvv !== null && paymentDetails.expiringDate !== null) {
+    if(paymentDetails.amount !== null && paymentDetails.clientId !== null && paymentDetails.narration !== null
+        && paymentDetails.cardNumber !== null && paymentDetails.cvv !== null
+        && paymentDetails.expiringDate !== null && paymentDetails.paymentRef !== null) {
+
         const paymentGateway = helperFunction.determinePaymentGateway(paymentDetails.amount);
         const checkCardNumber = helperFunction.checkIfCardNumberIs16(paymentDetails.cardNumber);
+
         if(checkCardNumber) {
             const uniqueReference = Math.random().toString(36).substring(7);
             const payload = new processPayment({

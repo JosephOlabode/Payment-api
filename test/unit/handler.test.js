@@ -7,4 +7,13 @@ describe('Determine Payment gateway', () => {
 
         expect(result).toBe('Cheap Payment Gateway');
     })
+});
+
+describe('Check if Card number is 16', () => {
+    it('should return true or false if card number is 16 or not', async () => {
+        const cardNumber = "1234567";
+        const result = await handler.checkIfCardNumberIs16(cardNumber);
+
+        expect(result).toBe(false);
+    })
 })
