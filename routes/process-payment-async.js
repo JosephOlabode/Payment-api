@@ -26,25 +26,22 @@ router.post('/process-payment-async', async (req, res, next) => {
                 paymentRef: paymentDetails.paymentRef
             });
 
-            payload.save((err) => {
-                if(err) {
-                    return next(err);
-                }
-            })
-
             const queryObject = {
                 statusCode: '00',
                 message: 'success',
                 paymentRef: uniqueReference,
                 amountPaid: paymentDetails.amount,
                 paymentGateway: paymentGateway
-            }
-            const query  = new queryPayment(queryObject)
+            };
 
-            query.save((err) => {
-                if(err)
-                    return next(err);
-            })
+            const query  = new queryPayment(queryObject);
+
+            try {
+                await payload.save();
+                await query.save();
+            } catch (e) {
+                return next(e);
+            }
 
             return res.status(200).send(queryObject);
         } else {
