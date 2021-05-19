@@ -7,7 +7,8 @@ const ProcessPaymentSchema = new Schema({
     narration: {type: String, required: true},
     cardNumber: {type: String, required: true},
     cvv: {type: Number, required: true},
-    expiringDate: {type: Date, required: true}
+    expiringDate: {type: Date, required: true},
+    paymentRef: {type: Date, requird: true}
 })
 
 module.exports = mongoose.model('process-payment', ProcessPaymentSchema, 'Payments');
