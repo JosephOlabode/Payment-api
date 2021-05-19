@@ -26,19 +26,20 @@ router.post('/process-payment-async', async (req, res, next) => {
             }
         })
 
-        const query  = new queryPayment({
+        const queryObject = {
             statusCode: '00',
             message: 'success',
             paymentRef: uniqueReference,
             amountPaid: paymentDetails.amount
-        })
+        }
+        const query  = new queryPayment(queryObject)
 
         query.save((err) => {
             if(err)
                 return next(err);
         })
 
-
+        return res.status(200).send(queryObject);
     }
     else {
         return res.status(422).send({
