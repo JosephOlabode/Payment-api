@@ -3,12 +3,13 @@ const router = express.Router();
 const processPayment = require('../models/process-payment');
 const queryPayment = require('../models/query-payment');
 const uuid = require('uuid');
+const helperFunction = require('../controllers/helpers');
 
 
 router.post('/process-payment-async', async (req, res, next) => {
     const paymentDetails = req.body;
     if(paymentDetails.amount !== null && paymentDetails.clientId !== null && paymentDetails.narration !== null && paymentDetails.cardNumber !== null && paymentDetails.cvv !== null && paymentDetails.expiringDate !== null) {
-        const paymentGateway = determinePaymentGateway(paymentDetails.amount);
+        const paymentGateway = helperFunction.determinePaymentGateway(paymentDetails.amount);
         const uniqueReference = uuid();
         const payload = new processPayment({
             amount: paymentDetails.amount,
