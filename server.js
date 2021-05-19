@@ -4,7 +4,10 @@ const http = require('http');
 const cors = require('cors');
 const error = require('./middleware/error')
 const mongoose = require('mongoose');
+const processPayment = require('./routes/process-payment-async');
+const queryPayment = require('./routes/query-payment-async');
 
+// implementing the connection for the db
 const connectionString = 'mongodb://localhost:27017/PaymentDB';
 
 mongoose.connect(connectionString, { useNewUrlParser: true, useFindAndModify: false,
@@ -28,6 +31,11 @@ app.use((req, res, next) => {
 // enabling the server to take json payload
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
+
+
+// routes
+app.use('/api/payment/', processPayment);
+app.use('/api/query/', queryPayment);
 
 
 // default response link upon hitting the api
