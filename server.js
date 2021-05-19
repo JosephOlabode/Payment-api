@@ -3,7 +3,6 @@ const bodyParser = require('body-parser');
 const http = require('http');
 const cors = require('cors');
 const error = require('./middleware/error')
-//require('db');
 const mongoose = require('mongoose');
 
 const connectionString = 'mongodb://localhost:27017/PaymentDB';
