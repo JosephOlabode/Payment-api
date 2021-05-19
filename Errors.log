@@ -1,55 +1,5 @@
 {
   errors: {
-    expiringDate: CastError: Cast to date failed for value "20-05-2021" (type string) at path "expiringDate"
-        at SchemaDate.cast (/home/bowen/Desktop/Projects/Personal/Payment-api/node_modules/mongoose/lib/schema/date.js:353:11)
-        at SchemaDate.SchemaType.applySetters (/home/bowen/Desktop/Projects/Personal/Payment-api/node_modules/mongoose/lib/schematype.js:1106:12)
-        at model.$set (/home/bowen/Desktop/Projects/Personal/Payment-api/node_modules/mongoose/lib/document.js:1278:20)
-        at model.$set (/home/bowen/Desktop/Projects/Personal/Payment-api/node_modules/mongoose/lib/document.js:1022:16)
-        at model.Document (/home/bowen/Desktop/Projects/Personal/Payment-api/node_modules/mongoose/lib/document.js:147:12)
-        at model.Model (/home/bowen/Desktop/Projects/Personal/Payment-api/node_modules/mongoose/lib/model.js:105:12)
-        at new model (/home/bowen/Desktop/Projects/Personal/Payment-api/node_modules/mongoose/lib/model.js:4706:15)
-        at /home/bowen/Desktop/Projects/Personal/Payment-api/routes/process-payment-async.js:19:29
-        at Layer.handle [as handle_request] (/home/bowen/Desktop/Projects/Personal/Payment-api/node_modules/express/lib/router/layer.js:95:5)
-        at next (/home/bowen/Desktop/Projects/Personal/Payment-api/node_modules/express/lib/router/route.js:137:13)
-        at Route.dispatch (/home/bowen/Desktop/Projects/Personal/Payment-api/node_modules/express/lib/router/route.js:112:3)
-        at Layer.handle [as handle_request] (/home/bowen/Desktop/Projects/Personal/Payment-api/node_modules/express/lib/router/layer.js:95:5)
-        at /home/bowen/Desktop/Projects/Personal/Payment-api/node_modules/express/lib/router/index.js:281:22
-        at Function.process_params (/home/bowen/Desktop/Projects/Personal/Payment-api/node_modules/express/lib/router/index.js:335:12)
-        at next (/home/bowen/Desktop/Projects/Personal/Payment-api/node_modules/express/lib/router/index.js:275:10)
-        at Function.handle (/home/bowen/Desktop/Projects/Personal/Payment-api/node_modules/express/lib/router/index.js:174:3) {
-      stringValue: '"20-05-2021"',
-      messageFormat: undefined,
-      kind: 'date',
-      value: '20-05-2021',
-      path: 'expiringDate',
-      reason: AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
-      
-        assert.ok(false)
-      
-          at castDate (/home/bowen/Desktop/Projects/Personal/Payment-api/node_modules/mongoose/lib/cast/date.js:40:10)
-          at SchemaDate.cast (/home/bowen/Desktop/Projects/Personal/Payment-api/node_modules/mongoose/lib/schema/date.js:351:12)
-          at SchemaDate.SchemaType.applySetters (/home/bowen/Desktop/Projects/Personal/Payment-api/node_modules/mongoose/lib/schematype.js:1106:12)
-          at model.$set (/home/bowen/Desktop/Projects/Personal/Payment-api/node_modules/mongoose/lib/document.js:1278:20)
-          at model.$set (/home/bowen/Desktop/Projects/Personal/Payment-api/node_modules/mongoose/lib/document.js:1022:16)
-          at model.Document (/home/bowen/Desktop/Projects/Personal/Payment-api/node_modules/mongoose/lib/document.js:147:12)
-          at model.Model (/home/bowen/Desktop/Projects/Personal/Payment-api/node_modules/mongoose/lib/model.js:105:12)
-          at new model (/home/bowen/Desktop/Projects/Personal/Payment-api/node_modules/mongoose/lib/model.js:4706:15)
-          at /home/bowen/Desktop/Projects/Personal/Payment-api/routes/process-payment-async.js:19:29
-          at Layer.handle [as handle_request] (/home/bowen/Desktop/Projects/Personal/Payment-api/node_modules/express/lib/router/layer.js:95:5)
-          at next (/home/bowen/Desktop/Projects/Personal/Payment-api/node_modules/express/lib/router/route.js:137:13)
-          at Route.dispatch (/home/bowen/Desktop/Projects/Personal/Payment-api/node_modules/express/lib/router/route.js:112:3)
-          at Layer.handle [as handle_request] (/home/bowen/Desktop/Projects/Personal/Payment-api/node_modules/express/lib/router/layer.js:95:5)
-          at /home/bowen/Desktop/Projects/Personal/Payment-api/node_modules/express/lib/router/index.js:281:22
-          at Function.process_params (/home/bowen/Desktop/Projects/Personal/Payment-api/node_modules/express/lib/router/index.js:335:12)
-          at next (/home/bowen/Desktop/Projects/Personal/Payment-api/node_modules/express/lib/router/index.js:275:10) {
-        generatedMessage: true,
-        code: 'ERR_ASSERTION',
-        actual: false,
-        expected: true,
-        operator: '=='
-      },
-      valueType: 'string'
-    },
     paymentRef: CastError: Cast to date failed for value "cslfhhsdklhlksf" (type string) at path "paymentRef"
         at SchemaDate.cast (/home/bowen/Desktop/Projects/Personal/Payment-api/node_modules/mongoose/lib/schema/date.js:353:11)
         at SchemaDate.SchemaType.applySetters (/home/bowen/Desktop/Projects/Personal/Payment-api/node_modules/mongoose/lib/schematype.js:1106:12)
@@ -103,8 +53,8 @@
   },
   _message: 'process-payment validation failed',
   level: 'error',
-  message: 'process-payment validation failed: expiringDate: Cast to date failed for value "20-05-2021" (type string) at path "expiringDate", paymentRef: Cast to date failed for value "cslfhhsdklhlksf" (type string) at path "paymentRef"',
-  stack: 'ValidationError: process-payment validation failed: expiringDate: Cast to date failed for value "20-05-2021" (type string) at path "expiringDate", paymentRef: Cast to date failed for value "cslfhhsdklhlksf" (type string) at path "paymentRef"\n' +
+  message: 'process-payment validation failed: paymentRef: Cast to date failed for value "cslfhhsdklhlksf" (type string) at path "paymentRef"',
+  stack: 'ValidationError: process-payment validation failed: paymentRef: Cast to date failed for value "cslfhhsdklhlksf" (type string) at path "paymentRef"\n' +
     '    at model.Document.invalidate (/home/bowen/Desktop/Projects/Personal/Payment-api/node_modules/mongoose/lib/document.js:2729:32)\n' +
     '    at model.$set (/home/bowen/Desktop/Projects/Personal/Payment-api/node_modules/mongoose/lib/document.js:1318:12)\n' +
     '    at model.$set (/home/bowen/Desktop/Projects/Personal/Payment-api/node_modules/mongoose/lib/document.js:1022:16)\n' +
