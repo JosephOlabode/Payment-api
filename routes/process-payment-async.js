@@ -30,7 +30,8 @@ router.post('/process-payment-async', async (req, res, next) => {
             statusCode: '00',
             message: 'success',
             paymentRef: uniqueReference,
-            amountPaid: paymentDetails.amount
+            amountPaid: paymentDetails.amount,
+            paymentGateway: paymentGateway
         }
         const query  = new queryPayment(queryObject)
 

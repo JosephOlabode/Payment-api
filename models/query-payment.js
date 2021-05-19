@@ -6,7 +6,8 @@ const QuerySchema = new Schema({
     message: {type: String, required: true},
     paymentRef: {type: String, required: true},
     processTimeStamp: {type: Date, default: Date.now},
-    amountPaid: {type: Number, required: true}
+    amountPaid: {type: Number, required: true},
+    paymentGateway: {type: String, required: true}
 })
 
 
