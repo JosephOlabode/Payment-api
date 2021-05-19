@@ -33,7 +33,6 @@ router.post('/process-payment-async', async (req, res, next) => {
                 amountPaid: paymentDetails.amount,
                 paymentGateway: paymentGateway
             };
-
             const query  = new queryPayment(queryObject);
 
             try {
