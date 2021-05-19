@@ -7,6 +7,10 @@ function determinePaymentGateway(amount) {
         return 'Premium Payment Gateway'
 }
 
+function checkIfCardNumberIs16(cardNumber) {
+    return cardNumber.length === 16;
+}
 module.exports = {
-    determinePaymentGateway
+    determinePaymentGateway,
+    checkIfCardNumberIs16
 }
