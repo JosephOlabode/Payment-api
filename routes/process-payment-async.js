@@ -22,9 +22,23 @@ router.post('/process-payment-async', async (req, res, next) => {
 
         payload.save((err) => {
             if(err) {
-
+                return next(err);
             }
         })
+
+        const query  = new queryPayment({
+            statusCode: '00',
+            message: 'success',
+            paymentRef: uniqueReference,
+            amountPaid: paymentDetails.amount
+        })
+
+        query.save((err) => {
+            if(err)
+                return next(err);
+        })
+
+
     }
     else {
         return res.status(422).send({
